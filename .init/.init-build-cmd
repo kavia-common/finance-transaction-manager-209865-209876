@@ -1,0 +1,4 @@
+{
+    "command": "npm install && npm run build",
+    "working_directory": "/home/kavia/workspace/code-generation/finance-transaction-manager-209865-209876/banking_frontend"
+}

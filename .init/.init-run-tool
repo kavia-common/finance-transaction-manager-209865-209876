@@ -1,0 +1,4 @@
+{
+    "command": "BROWSER=none npm run dev -- --port <port> --host <host>",
+    "working_directory": "/home/kavia/workspace/code-generation/finance-transaction-manager-209865-209876/banking_frontend"
+}
