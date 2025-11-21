@@ -8,16 +8,18 @@ The dashboard integrates with a FastAPI backend to authenticate, list accounts, 
 
 ## Configure environment
 
-Copy `.env.example` to `.env` and update the backend URL:
+Create `.env` (or copy `.env.example`) and set the backend URL:
 ```bash
 cp .env.example .env
+# or create manually
 ```
 
 Variables:
-- VITE_BACKEND_API_URL: Preferred. Example `http://localhost:3001`
-- BACKEND_API_URL: Fallback if Vite variables are not available.
+- VITE_BACKEND_API_URL: Preferred. Example `http://localhost:8000`
 
-The header shows the currently resolved API base URL to confirm configuration.
+Notes:
+- Ensure the backend FastAPI server is running on the configured host/port.
+- The header shows the resolved API base URL for confirmation.
 
 ## Commands
 
