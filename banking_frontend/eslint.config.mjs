@@ -1,15 +1,25 @@
-// eslint.config.mjs
+/* eslint.config.mjs */
 import typescript from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+
+const browserGlobals = {
+  React: 'readable',
+  window: 'readable',
+  document: 'readable',
+  navigator: 'readable',
+  localStorage: 'readable',
+  fetch: 'readable',
+  URLSearchParams: 'readable',
+  console: 'readable',
+  setTimeout: 'readable',
+};
 
 export default [
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       parser: tsParser,
-      globals: {
-        React: 'readable'  // Add this line to define React as a global
-      }
+      globals: browserGlobals,
     },
     plugins: {
       '@typescript-eslint': typescript,
@@ -24,13 +34,17 @@ export default [
   {
     files: ["**/*.{js,jsx}"],
     languageOptions: {
-      globals: {
-        React: 'readable'
-      }
+      globals: browserGlobals,
     },
     rules: {
       "no-undef": "error",
       "no-unused-vars": "warn",
+    }
+  },
+  // Global override to turn off a rule that would require react-hooks plugin which is not installed
+  {
+    rules: {
+      "react-hooks/exhaustive-deps": "off",
     }
   }
 ];

@@ -1,41 +1,64 @@
-# Remotion video
+# Remotion video + Banking Dashboard (Frontend)
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.gif">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+This Remotion project now includes:
+- Original Remotion compositions (HelloWorld, OnlyLogo)
+- A lightweight React banking dashboard previewed inside Remotion Studio (Composition: BankingDashboardPreview)
 
-Welcome to your Remotion project!
+The dashboard integrates with a FastAPI backend to authenticate, list accounts, view transactions and create new transactions.
+
+## Configure environment
+
+Copy `.env.example` to `.env` and update the backend URL:
+```bash
+cp .env.example .env
+```
+
+Variables:
+- VITE_BACKEND_API_URL: Preferred. Example `http://localhost:3001`
+- BACKEND_API_URL: Fallback if Vite variables are not available.
+
+The header shows the currently resolved API base URL to confirm configuration.
 
 ## Commands
 
-**Install Dependencies**
-
+Install dependencies:
 ```console
 npm i
 ```
 
-**Start Preview**
-
+Start Remotion Studio:
 ```console
 npm run dev
 ```
+Open the "BankingDashboardPreview" composition to use the UI inside Studio.
 
-**Render video**
-
+Render a video (example with HelloWorld):
 ```console
 npx remotion render
 ```
 
-**Upgrade Remotion**
-
+Upgrade Remotion:
 ```console
 npx remotion upgrade
 ```
+
+## Backend endpoints assumed
+
+- POST /auth/login
+- GET /auth/me
+- GET /accounts
+- GET /accounts/{id}
+- GET /accounts/{id}/balance
+- GET /transactions
+- POST /transactions
+- GET /transactions/{id}
+
+## Notes
+
+- Minimal client-side state via React hooks.
+- Basic retry for network/server errors.
+- Ocean Professional theme applied with subtle shadows and rounded corners.
+- Remotion compositions are preserved.
 
 ## Docs
 
